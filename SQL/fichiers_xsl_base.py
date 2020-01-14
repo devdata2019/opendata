@@ -15,19 +15,22 @@ engine = create_engine('mysql+pymysql://root@localhost/opendata')
 #df.to_sql('naf1993sections', con=engine, if_exists='append', index=False)
 
 def importexcel(fichier_xls, table_sql, rows_to_skip):
+    
     df = pd.read_excel(fichier_xls, delimiter='|',skiprows=rows_to_skip)
+    
     df.to_sql(table_sql, con=engine, if_exists='append', index=False)
+    
     return print('tableau', table_sql, 'has been filled')
 
-naf1993_niveaux = '/home/utilisateur/Downloads/naf1993_5_niveaux.xls'
-naf2003_niveaux = '/home/utilisateur/Downloads/naf2003_n1-5.xls'
-naf2008_niveaux = '/home/utilisateur/Downloads/naf2008_5_niveaux.xls'
+naf1993_niveaux = '/home/utilisateur/Documents/git_workspace/opendata/naf1993_5_niveaux.xls'
+naf2003_niveaux = '/home/utilisateur/Documents/git_workspace/opendata/naf2003_n1-5.xls'
+naf2008_niveaux = '/home/utilisateur/Documents/git_workspace/opendata/naf2008_5_niveaux.xls'
 
-naf1993_sections = '/home/utilisateur/Downloads/naf1993_liste_n1.xls'
-naf2003_sections = '/home/utilisateur/Downloads/naf2003_liste_n1.xls'
-naf2008_sections = '/home/utilisateur/Downloads/naf2008_liste_n1.xls'
+naf1993_sections = '/home/utilisateur/Documents/git_workspace/opendata/naf1993_liste_n1.xls'
+naf2003_sections = '/home/utilisateur/Documents/git_workspace/opendata/naf2003_liste_n1.xls'
+naf2008_sections = '/home/utilisateur/Documents/git_workspace/opendata/naf2008_liste_n1.xls'
 
-nap1973 = '/home/utilisateur/Downloads/NAP_1973_1993.xls'
+nap1973 = '/home/utilisateur/Documents/git_workspace/opendata/NAP_1973_1993.xls'
 
 
 
