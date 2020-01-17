@@ -14,21 +14,26 @@ engine = create_engine("mysql+pymysql://root:@localhost/opendata")
 
 #Bolean tant que running = True.
 
+#Function wich read sql
+#def rd() :
+        
 
-
+#Function wich creat the starting menu
 def start() :
     a = "0"
     running = True
     while running == True :
         a = input("Bienvenue!\n\nTapez 1 pour acceder au premier choix.\nTapez 2 pour acceder au second choix.\nTapez 3 pour acceder au troisième choix.\nTapez 4 pour acceder au quatrième choix.\nTapez 5 pour quitter.")
         if a == "1" :
-            print("vous venez de choisir le premier choix")
+            print("vous venez de choisir le premier choix.")
+            df = pd.read_sql("SELECT * FROM alias_etab_marseille",con=engine)
+            print(df)
         elif a == "2" :
-            print("vous venez de choisir le second choix")
+            print("vous venez de choisir le second choix.")
         elif a == "3" :
-            print("vous venez de choisir le troisième choix")
+            print("vous venez de choisir le troisième choix.")
         elif a == "4" :
-            print("vous venez de choisir le quatrième choix")
+            print("vous venez de choisir le quatrième choix.")
         elif a == "5" :
             quitter = "Y" or "y" 
             if quitter == "Y" or quitter == "y":

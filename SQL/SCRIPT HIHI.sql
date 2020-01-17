@@ -33,7 +33,10 @@ WHERE codePostalEtablissement LIKE '130%'
 ----------------------------------------------------------------------------------------------------------------
 
 
-USE opendata;
+USE opendata ;
+ALTER TABLE etablissement_marseille
+ADD INDEX idx_codeAct (activitePrincipaleEtablissement) ;
+CREATE TABLE alias_etab_marseille AS 
 SELECT siret , activitePrincipaleEtablissement, LIB_NAP15
 FROM etablissement_marseille
 INNER join nap1973_1993 ON etablissement_marseille.activitePrincipaleEtablissement = nap1973_1993.NAP600
@@ -57,6 +60,7 @@ UNION
 SELECT siret , activitePrincipaleEtablissement, Libellé
 FROM etablissement_marseille
 INNER join naf2008niveaux ON etablissement_marseille.activitePrincipaleEtablissement = naf2008niveaux.NIV5
+INNER join naf2008sections ON naf2008niveaux.NIV1 = naf2008sections.code ; 
 INNER join naf2008sections ON naf2008niveaux.NIV1 = naf2008sections.code 
 ; 
 
