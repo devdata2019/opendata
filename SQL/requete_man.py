@@ -49,7 +49,7 @@ def start() :
             print("vous venez de choisir le troisième choix.\n")
             n = input("Selectionner arrondissement\n")
             y = input("Selectionner un secteur\n")
-            df = pd.read_sql('SELECT COUNT(*) FROM alias_etab_marseille WHERE codePostalEtablissement = "%s" AND "%s"' % (y,n),engine)
+            df = pd.read_sql('SELECT COUNT(*) FROM alias_etab_marseille WHERE codePostalEtablissement = "%s" AND LIB_NAP600 = "%s"' % (y,n),engine)
             print(df)
         elif a == "4" :
             print("vous venez de choisir le quatrième choix.\n")
