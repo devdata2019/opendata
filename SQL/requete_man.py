@@ -34,22 +34,20 @@ def start() :
     a = "0"
     running = True
     while running == True :
-        a = input("Bienvenue!\n\nTapez 1 pour acceder au premier choix.\nTapez 2 pour acceder au second choix.\nTapez 3 pour acceder au troisième choix.\nTapez 4 pour acceder au quatrième choix.\nTapez 5 pour quitter.\n")
+        a = input("\nBienvenue!\n\nTapez 1 pour afficher le nombre par secteur d'activité.\nTapez 2 pour afficher le nombre par arrondissement.\nTapez 3 pour acceder au troisième choix.\nTapez 4 pour acceder au quatrième choix.\nTapez 5 pour quitter.\n\n")
         if a == "1" :   
-            print("Vous venez de choisir le premier choix.\n")
-            y = input("Selectionner un secteur\n")
-            df = pd.read_sql('SELECT COUNT(*) FROM alias_etab_marseille WHERE LIB_NAP600 = "%s"' % (y) ,engine)
+            y = input("Veuillez selectionner un secteur d'activité.\n")
+            df = pd.read_sql('SELECT LIB_NAP600 as Secteur, codePostalEtablissement as CP, COUNT(*) as nbr FROM alias_etab_marseille WHERE LIB_NAP600 = "%s" GROUP BY LIB_NAP600,codePostalEtablissement ORDER BY CP' % (y) ,engine)
             print(df)
         elif a == "2" :
-            print("vous venez de choisir le second choix.\n")
-            y = input("Selectionner un arrondissement\n")
-            df = pd.read_sql('SELECT COUNT(*) FROM alias_etab_marseille WHERE codePostalEtablissement = "%s"' % (y) ,engine)
+            y = input("Veuillez selectionner un arrondis1sement\n")
+            df = pd.read_sql('SELECT LIB_NAP600 as Secteur, codePostalEtablissement as CP, COUNT(*) as nbr FROM alias_etab_marseille WHERE codePostalEtablissement = "%s" GROUP BY LIB_NAP600, codePostalEtablissement ORDER BY Secteur' % (y) ,engine)
             print(df)
         elif a == "3" :
             print("vous venez de choisir le troisième choix.\n")
             n = input("Selectionner arrondissement\n")
             y = input("Selectionner un secteur\n")
-            df = pd.read_sql('SELECT COUNT(*) FROM alias_etab_marseille WHERE codePostalEtablissement = "%s" AND LIB_NAP600 = "%s"' % (y,n),engine)
+            df = pd.read_sql('SELECT LIB_NAP600 AS Secteur , codePostalEtablissement AS CP COUNT(*) FROM alias_etab_marseille WHERE codePostalEtablissement = "%s" AND LIB_NAP600 = "%s"' % (y,n),engine)
             print(df)
         elif a == "4" :
             print("vous venez de choisir le quatrième choix.\n")
