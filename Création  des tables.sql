@@ -1,3 +1,4 @@
+USE opendata;
 CREATE TABLE etab (
 siren VARCHAR(9) COMMENT "Numéro Siren",
 nic	VARCHAR(5) COMMENT "Numéro interne de classement de l'établissement",

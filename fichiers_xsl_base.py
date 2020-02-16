@@ -22,15 +22,15 @@ def importexcel(fichier_xls, table_sql, rows_to_skip):
     
     return print('tableau', table_sql, 'has been filled')
 
-naf1993_niveaux = '/home/utilisateur/Documents/git_workspace/opendata/naf1993_5_niveaux.xls'
-naf2003_niveaux = '/home/utilisateur/Documents/git_workspace/opendata/naf2003_n1-5.xls'
-naf2008_niveaux = '/home/utilisateur/Documents/git_workspace/opendata/naf2008_5_niveaux.xls'
+naf1993_niveaux = '/home/joshua/Documents/git-workspace/opendata/naf1993_5_niveaux.xls'
+naf2003_niveaux = '/home/joshua/Documents/git-workspace/opendata/naf2003_n1-5.xls'
+naf2008_niveaux = '/home/joshua/Documents/git-workspace/opendata/naf2008_5_niveaux.xls'
 
-naf1993_sections = '/home/utilisateur/Documents/git_workspace/opendata/naf1993_liste_n1.xls'
-naf2003_sections = '/home/utilisateur/Documents/git_workspace/opendata/naf2003_liste_n1.xls'
-naf2008_sections = '/home/utilisateur/Documents/git_workspace/opendata/naf2008_liste_n1.xls'
+naf1993_sections = '/home/joshua/Documents/git-workspace/opendata/naf1993_liste_n1.xls'
+naf2003_sections = '/home/joshua/Documents/git-workspace/opendata/naf2003_liste_n1.xls'
+naf2008_sections = '/home/joshua/Documents/git-workspace/opendata/naf2008_liste_n1.xls'
 
-nap1973 = '/home/utilisateur/Documents/git_workspace/opendata/NAP_1973_1993.xls'
+nap1973 = '/home/joshua/Documents/git-workspace/opendata/NAP_1973_1993.xls'
 
 
 
